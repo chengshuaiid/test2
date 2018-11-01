@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    
+    <!-- 测试包-->	
+    <package name="test" namespace="/test" extends="default">
+   	
+   		<!-- 注册方法过滤拦截器 -->
+        <interceptors>
+     		<interceptor name="TestMethodFilterInterceptor" class="com.etc.interceptor.TestMethodFilterInterceptor"></interceptor>
+        </interceptors>
+        
+    	<!-- 测试获取Servlet API对象的四种方式 -->
+    	<action name="TestServletAction1" class="com.etc.action.TestServletAction1">
+    		<result>/test/test_servlet_handle.jsp</result>
+    	</action>
+    		
+    	<action name="TestServletAction2" class="com.etc.action.TestServletAction2">
+    		<result>/test/test_servlet_handle.jsp</result>
+    	</action>
+    	
+    	<action name="TestServletAction3" class="com.etc.action.TestServletAction3">
+    		<result>/test/test_servlet_handle.jsp</result>
+    	</action>
+    	
+    	<action name="TestServletAction4" class="com.etc.action.TestServletAction4">
+    		<result>/test/test_servlet_handle.jsp</result>
+    	</action>
+    	
+    	<!-- 测试注入请求参数的三种方式 -->
+    	<action name="TestInjectAction1" class="com.etc.action.TestInjectAction1">
+			<result>test_inject.jsp</result>
+		</action>
+    	
+    	<action name="TestInjectAction2" class="com.etc.action.TestInjectAction2">
+			<result>test_inject.jsp</result>
+		</action>
+		
+		<action name="TestInjectAction3" class="com.etc.action.TestInjectAction3">
+			<result>test_inject.jsp</result>
+		</action>
+		
+		
+    	<!-- 测试文件上传 -->
+    	<action name="TestUploadSingleAction" class="com.etc.action.TestUploadSingleAction">
+    		<result>/test/test_upload_single.jsp</result>
+    		<result name="error">/test/test_upload_single.jsp</result>
+    	</action>
+    	
+    	<action name="TestUploadMultiAction" class="com.etc.action.TestUploadMultiAction">
+    		<result>/test/test_upload_multi.jsp</result>
+    		<result name="error">/test/test_upload_multi.jsp</result>
+    	</action>
+    	
+    		
+    	<!-- 测试文件下载 手工方式 
+    	<action name="TestDownloadAction" class="com.etc.action.TestDownloadAction1">
+    	</action>
+    	-->
+    	
+    	<!-- 测试文件下载 Struts方式 --> 
+    	<action name="TestDownloadAction" class="com.etc.action.TestDownloadAction1">
+    		<result type="stream">
+    			<param name="contentDisposition">attachment;filename=${filename}</param>
+    		</result>
+    	</action>
+    	
+    	<!-- 测试JSON数据解析 -->
+    	<action name="TestJsonAction" class="com.etc.action.TestJsonAction">
+    		<!-- <result type="stream"></result> -->
+    		<result type="json">
+    			<param name="root">result</param>
+    		</result>
+    	</action>
+    	
+    	<!-- 测试自定义拦截器 -->
+    	<action name="TestInterceptorAction" class="com.etc.action.TestInterceptorAction">
+    		<result>/test/test_interceptor.jsp</result>
+    		
+    		<!-- 引用拦截器 -->
+    		<interceptor-ref name="TestInterceptor1">
+    		</interceptor-ref>
+    		<interceptor-ref name="TestInterceptor2">
+    		</interceptor-ref>
+    	</action>
+    	
+    	<action name="LogTimeAction" class="com.etc.action.LogTimeAction">
+    		<result>/test/log_time.jsp</result>
+    		
+    		<param name="loopTime">3000</param>
+    		
+    		<!-- 引用拦截器
+    		<interceptor-ref name="LogTimeInterceptor" />
+    		<interceptor-ref name="defaultStack"></interceptor-ref> 
+    		-->
+    		
+    		<!-- 引用拦截器栈
+    		<interceptor-ref name="myStack"></interceptor-ref>
+    		-->
+    	</action>
+    	
+    	<!-- 测试方法过滤拦截器 -->
+		<action name="test_*" class="com.etc.action.TestMethodFilterInterceptorAction" method="{1}">
+
+    		<result>/test/test_method_filter_interceptor.jsp</result>
+
+    		<interceptor-ref name="TestMethodFilterInterceptor">
+    			<param name="includeMethods">method1,method2</param> 
+    			<param name="excludeMethods">method3</param>
+    		</interceptor-ref>
+
+    	</action>
+    	
+    </package>
+
+</struts>

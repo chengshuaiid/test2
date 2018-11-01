@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 修改系统常量 -->	
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<constant name="struts.action.extension" value="action,do,html,,"></constant>
+	<constant name="struts.multipart.maxSize" value="20971520"/>
+	
+	<!-- 默认全局公共包-->	
+    <package name="default" namespace="/" extends="json-default">
+    
+    	<!-- <interceptors>
+   		
+   			注册拦截器
+   			<interceptor name="TestInterceptor1" class="com.etc.interceptor.TestInterceptor">
+   				<param name="interceptorClassName">第1个拦截器</param>
+   			</interceptor>
+   			<interceptor name="TestInterceptor2" class="com.etc.interceptor.TestInterceptor">
+   				<param name="interceptorClassName">第2个拦截器</param>
+   			</interceptor>
+   				
+   			<interceptor name="LogTimeInterceptor" class="com.etc.interceptor.LogTimeInterceptor">
+   				<param name="pattern">yyyy-MM-dd HH:mm:ss.SSS</param>
+   			</interceptor>	
+   			
+   			<interceptor name="LoginCheckInterceptor" class="com.etc.interceptor.LoginCheckInterceptor">
+   				<param name="passActionList">UserAction,ValCodeAction</param>
+   			</interceptor>
+   			
+   			注册拦截器栈
+   			<interceptor-stack name="myStack">
+   				<interceptor-ref name="LogTimeInterceptor"></interceptor-ref>
+   				<interceptor-ref name="LoginCheckInterceptor"></interceptor-ref>
+   				<interceptor-ref name="defaultStack"></interceptor-ref>
+   			</interceptor-stack>
+   			
+   		</interceptors>
+   		
+    	默认的拦截器引用
+   		<default-interceptor-ref name="myStack"></default-interceptor-ref> -->
+   	
+   		<!-- 全局结果 -->
+   		<global-results>   
+        	<result name="login">/user/user_login.jsp</result>
+        </global-results>
+        
+    	<!-- name属性对应url-pattern
+    		 class属性对应Action的完整类名  默认为ActionSupport
+    		 method属性对应Action方法名  默认为execute
+    	 -->
+    	<!-- <action name="HelloAction" class="com.etc.action.HelloAction">
+    	
+    		name属性对应Action方法的返回值 默认为success
+    			 type属性对应跳转的类型  默认值为dispatcher(转发)   redirect(重定向)  
+    		
+    		<result name="success" type="dispatcher">/index.jsp</result>		
+    		
+    	</action> -->
+    	
+    	<!-- 验证码 -->
+    	<action name="ValCodeAction" class="com.etc.action.ValCodeAction">
+    		<result type="stream" />
+    	</action>
+    	
+    </package>	
+    
+   <!-- 包含其他的配置文件 -->
+   <include file="struts-user.xml"></include>
+   <include file="struts-test.xml"></include>
+   <include file="struts-news.xml"></include>
+   
+</struts>

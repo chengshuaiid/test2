@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    
+    <!-- 新闻包-->	
+    <package name="news" namespace="/news" extends="default">
+   
+   		<interceptors>
+   			<interceptor name="ReplaceWordInterceptor" class="com.etc.interceptor.ReplaceWordInterceptor">
+   				<param name="wordList">坏蛋:好蛋,法轮功:健身操</param>
+   				<param name="includeMethods">add</param>
+   			</interceptor>
+   			
+   			<interceptor-stack name="newsStack">
+	    		<interceptor-ref name="myStack"></interceptor-ref>
+    			<interceptor-ref name="ReplaceWordInterceptor"></interceptor-ref>
+   			</interceptor-stack>
+   			
+   		</interceptors>
+   		
+   		<!-- 引用增强版的拦截器 -->
+   		<default-interceptor-ref name="newsStack"></default-interceptor-ref>
+   		
+    	<action name="news_*" class="com.etc.action.NewsAction" method="{1}">
+    	
+    		<result>${targetPage}</result>		
+    		<result name="error">${targetPage}</result>
+    			
+    		<result name="download" type="stream">
+				<param name="contentDisposition">attachment;filename=${news.truename}</param>
+			</result>		
+    			
+    		<param name="addNewsScore">5</param>
+    		<param name="pageSize">10</param>
+    		
+    		<param name="maxFileSize">2</param>
+    		<param name="deniedFileList">exe,bat,js</param>
+    		
+    	</action>
+    </package>
+    
+   
+
+</struts>

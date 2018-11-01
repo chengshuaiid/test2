@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+  version="2.0">
+    
+  <description>JSTL 1.1 functions library</description>
+  <display-name>JSTL functions</display-name>
+  <tlib-version>1.1</tlib-version>
+  <short-name>myfn</short-name>
+  <uri>http://java.sun.com/jsp/jstl/myfunctions</uri>
+
+
+  <function>
+    <description>
+    </description>
+    <name>convertKeyword</name>
+    <function-class>com.etc.vmall101.util.StringUtil</function-class>
+    <function-signature>java.lang.String convertKeyword(java.lang.String,java.lang.String)</function-signature>
+    <example>
+    </example>  
+  </function>
+  
+  <function>
+    <description>
+    </description>
+    <name>convertDatetime</name>
+    <function-class>com.etc.vmall101.util.StringUtil</function-class>
+    <function-signature>java.lang.String convertDatetime(java.util.Date,java.lang.String)</function-signature>
+    <example>
+    </example>  
+  </function>
+  
+  <function>
+    <description>
+    </description>
+    <name>convertDateTime</name>
+    <function-class>com.etc.vmall101.util.StringUtil</function-class>
+    <function-signature>java.lang.String convertDateTime(java.util.Date)</function-signature>
+    <example>
+    </example>  
+  </function>
+  
+  <function>
+    <description>
+    </description>
+    <name>fileType</name>
+    <function-class>com.etc.vmall101.util.StringUtil</function-class>
+    <function-signature>java.lang.String fileType(java.lang.String,javax.servlet.ServletContext)</function-signature>
+    <example>
+    </example>  
+  </function>
+  
+  <function>
+    <description>
+    </description>
+    <name>fileSize</name>
+    <function-class>com.etc.vmall101.util.StringUtil</function-class>
+    <function-signature>java.lang.String fileSize(java.lang.Integer)</function-signature>
+    <example>
+    </example>  
+  </function>
+  
+  <function>
+    <description>
+    </description>
+    <name>getImgName</name>
+    <function-class>com.etc.vmall101.util.StringUtil</function-class>
+    <function-signature>java.lang.String getImgName(java.lang.String)</function-signature>
+    <example>
+    </example>  
+  </function>
+  
+  <function>
+  	   <description>获取大图</description>
+	   <name>getBigPhoto</name>
+	   <function-class>com.etc.vmall101.util.StringUtil</function-class>
+	   <function-signature>java.lang.String getBigPhoto(java.lang.String)</function-signature>
+  </function>
+  
+  <function>
+  	   <description>获取中图</description>
+	   <name>getMiddlePhoto</name>
+	   <function-class>com.etc.vmall101.util.StringUtil</function-class>
+	   <function-signature>java.lang.String getMiddlePhoto(java.lang.String)</function-signature>
+  </function>
+  
+  <function>
+  	   <description>获取小图</description>
+	   <name>getSmallPhoto</name>
+	   <function-class>com.etc.vmall101.util.StringUtil</function-class>
+	   <function-signature>java.lang.String getSmallPhoto(java.lang.String)</function-signature>
+  </function>
+  
+   <function>
+  	   <description>取手机颜色种类</description>
+	   <name>getKindColor</name>
+	   <function-class>com.etc.vmall101.util.StringUtil</function-class>
+	   <function-signature>java.lang.String getKindColor(java.lang.String)</function-signature>
+  </function>
+  
+  <function>
+  	   <description>取手机制式种类</description>
+	   <name>getKindStand</name>
+	   <function-class>com.etc.vmall101.util.StringUtil</function-class>
+	   <function-signature>java.lang.String getKindStand(java.lang.String)</function-signature>
+  </function>
+
+</taglib>

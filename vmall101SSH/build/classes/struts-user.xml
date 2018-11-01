@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    
+    <!-- 用户包-->	
+    <package name="user" namespace="/user" extends="default">
+   
+    	<!-- 传统方式
+    	<action name="user_login" class="com.etc.action.UserAction" method="login">
+    		<result type="redirect">/index.jsp</result>		
+    		<result name="error">/user/user_login.jsp</result>	
+    		
+    		<param name="loginScore">2</param>
+    	</action>
+    	
+    	<action name="user_logout" class="com.etc.action.UserAction" method="logout">
+    		<result type="redirect">/user/user_login.jsp</result>		
+    	</action>
+    	
+    	<action name="user_register" class="com.etc.action.UserAction" method="register">
+    		<result type="redirect">/user/user_register_result.jsp</result>	
+    		<result name="error">/user/user_register.jsp</result>
+    		
+    		<param name="registerScore">20</param>	
+    	</action>
+    	
+    	<action name="user_query" class="com.etc.action.UserAction" method="query">
+    		<result>/user/user_query.jsp</result>		
+    	</action>
+    	-->
+    	
+    	<!-- 通配符方式 -->
+    	<action name="user_*" class="com.etc.action.UserAction" method="{1}">
+    	
+    		<result>${targetPage}</result>		
+    		<result name="error">${targetPage}</result>	
+    		<result name="input" type="chain">
+    		    <param name="actionName">IndexProductAction</param>    
+             	<param name="namespace">/index</param>
+	     		<param name="method">indexProduct</param>
+    		</result>
+    		
+    		<result name="checkusername" type="stream"></result>
+    		<result name="checkemail" type="stream"></result>
+    		
+    		<param name="loginScore">2</param>
+    		<param name="registerScore">20</param>	
+    		
+    		<param name="maxFileSize">100</param>
+    		<param name="allowedFileList">jpg,gif</param>
+    		
+    	</action>
+    </package>
+    
+   
+
+</struts>

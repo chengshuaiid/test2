@@ -1,0 +1,99 @@
+* {
+	margin: 0px auto;
+}
+
+body {
+	background-color: #EBEBEB;
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+	min-width: 1400px;
+}
+
+#headers {
+	height: 60px;
+	width: 100%;
+}
+
+.logo {
+	width: 60%;
+}
+
+.logo_img {
+	float: left;
+	margin-top: 10px;
+}
+
+.logo_font {
+	float: left;
+	margin-top: 22px;
+}
+
+#content {
+	height: 588px;
+	width: 100%;
+	background-image: url(../img/login/login_bg.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.login_img {
+	width: 630px;
+	height: 545px;
+	float: left;
+	background-image: url(../img/login/login_default_bg.png);
+}
+
+.login_content {
+	width: 346px;
+	height: 100%;
+	float: left;
+	margin-top: 60px;
+	background-color: white;
+}
+
+.login_header {
+	margin-top: 10px;
+	font-size: 20px;
+}
+#span_login:hover{
+	color:red;
+}
+#span_quick_login:hover{
+	color:red;
+}
+.login_header span {
+	width: 150px;
+	display: inline-block;
+	text-align: center;
+	padding: 0 10px;
+	cursor: pointer;
+}
+
+.login_form {
+	margin-top: 10px;
+}
+
+.login_form table tr {
+	height: 60px;
+}
+
+.login_quick_img{
+	height: 200px;
+	width: 60%;
+	margin-left: 70px;
+	margin-top: 60px;
+}
+.login_quick_text{
+	height: 100px;
+	width: 300px;
+	text-align: center;
+}
+
+#foot{
+	padding-top:20px;
+	height: 20%;
+	width: 300px;
+}
